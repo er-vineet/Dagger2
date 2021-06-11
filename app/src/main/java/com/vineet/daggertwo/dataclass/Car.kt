@@ -9,7 +9,7 @@ data class Car @Inject constructor(var engine: Engine, var battery: Battery) {
         battery.ignite()
         engine.start()
 
-        Log.i("log", "Car is driving.")
+        Log.i("log", "Grrrr.. Car is driving.")
     }
 
 }
