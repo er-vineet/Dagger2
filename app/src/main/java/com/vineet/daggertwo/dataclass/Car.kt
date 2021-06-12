@@ -12,4 +12,9 @@ data class Car @Inject constructor(var engine: Engine, var battery: Battery) {
         Log.i("log", "Grrrr.. Car is driving.")
     }
 
+    @Inject
+    fun attachLicensePlate(licensePlate: LicensePlate) {
+        licensePlate.attachLicensePlate(this)
+    }
+
 }
