@@ -1,19 +1,21 @@
 package com.vineet.daggertwo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.vineet.daggertwo.dataclass.Car
-import com.vineet.daggertwo.dataclass.Engine
 import com.vineet.daggertwo.dependencyinjection.DaggerCarComponent
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var car: Car
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val car: Car = DaggerCarComponent.create().getCar()
+        DaggerCarComponent.create().inject(this)
         car.drive()
     }
 
